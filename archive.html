@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105514461', 'ym');
+
+    ym(105514461, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105514461" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    <title>ZelDev — Архив митапов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Архив митапов ZelDev: список прошедших мероприятий сообщества разработчиков Зеленограда.">
+    <style>
+        :root {
+            --bg: #050816;
+            --bg-alt: #070b1f;
+            --accent: #10b981;
+            --accent-soft: rgba(16, 185, 129, 0.12);
+            --accent-strong: rgba(16, 185, 129, 0.24);
+            --text: #f9fafb;
+            --muted: #9ca3af;
+            --border: rgba(148, 163, 184, 0.2);
+            --card-bg: rgba(15, 23, 42, 0.85);
+            --radius: 18px;
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #111827 0, #020617 40%, #000 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.92), transparent);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            background:
+                radial-gradient(circle at 20% 20%, #22c55e 0, transparent 55%),
+                radial-gradient(circle at 80% 80%, #22d3ee 0, transparent 55%),
+                radial-gradient(circle at 10% 90%, #4f46e5 0, transparent 55%),
+                #020617;
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3),
+                        0 14px 30px rgba(15, 23, 42, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            font-weight: 700;
+            color: #e5e7eb;
+        }
+
+        .brand-text-main {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .brand-text-sub {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            padding: 6px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 7px 14px;
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--text);
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.16s ease;
+            white-space: nowrap;
+        }
+
+        .btn span.emoji {
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            border-color: transparent;
+            background: linear-gradient(135deg, #22c55e, #0ea5e9);
+            color: #022c22;
+            font-weight: 600;
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.45);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 40px rgba(16, 185, 129, 0.65);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.08), rgba(15, 23, 42, 0.95));
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 32px 16px 40px;
+        }
+
+        .section-header {
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 0 0 4px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            max-width: 680px;
+        }
+
+        .notice {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .table-wrapper {
+            margin-top: 18px;
+            overflow-x: auto;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: var(--shadow-soft);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 640px;
+        }
+
+        thead {
+            background: linear-gradient(to right, rgba(34, 197, 94, 0.08), rgba(56, 189, 248, 0.04));
+        }
+
+        th, td {
+            padding: 10px 12px;
+            font-size: 13px;
+            text-align: left;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+            vertical-align: top;
+        }
+
+        th {
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        .pill {
+            display: inline-flex;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 11px;
+            color: #e5e7eb;
+            margin: 0 4px 4px 0;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .link {
+            color: #a5f3fc;
+            font-size: 12px;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 16px;
+            font-size: 11px;
+            color: var(--muted);
+            text-align: center;
+            background: #020617;
+        }
+
+        .footer a {
+            color: #a5f3fc;
+        }
+
+        @media (max-width: 720px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav {
+                padding-inline: 12px;
+            }
+
+            table {
+                min-width: 540px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div class="nav">
+            <a href="index.html#top" class="brand">
+                <div class="brand-logo">Z</div>
+                <div>
+                    <div class="brand-text-main">ZelDev</div>
+                    <div class="brand-text-sub">Архив митапов</div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html#about">О сообществе</a>
+                <a href="index.html#topics">Темы</a>
+                <a href="index.html#events">Формат митапов</a>
+                <a href="archive.html">Архив митапов</a>
+                <a href="index.html#join">Как присоединиться</a>
+            </nav>
+            <div class="nav-cta">
+                <a class="btn btn-primary" href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener">
+                    <span class="emoji">💬</span> Telegram
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <header class="section-header">
+                <h1 class="section-title">Архив митапов ZelDev</h1>
+                <p class="section-subtitle">
+                    На этой странице собраны прошедшие мероприятия сообщества ZelDev по публичным анонсам партнёров,
+                    соцсетей и городских афиш. По состоянию на июль 2025 года прошло <strong>21 мероприятие</strong>.
+                </p>
+                <p class="notice">
+                    Источники: афиша Zelenograd.ru, публикации партнёров, Rutube, GoMeetup, Timepad и другие открытые площадки.
+                    Часть самых ранних митапов может не быть в списке: они доступны только в закрытом архиве meetup.com.
+                </p>
+            </header>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Год</th>
+                        <th>Дата</th>
+                        <th>Название / формат</th>
+                        <th>Ключевые темы</th>
+                        <th>Ссылки на анонсы и материалы</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2025</td>
+                        <td>4 июля</td>
+                        <td>ZelDev Meetup #21 — июльский митап: открытый микрофон</td>
+                        <td>
+                            <span class="pill">GPT в IT</span>
+                            <span class="pill">ClickHouse</span>
+                            <span class="pill">эссенциализм</span>
+                            <span class="pill">Open Source</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://zeldev.ru/" target="_blank" rel="noopener">Регистрация на zeldev.ru</a><br>
+                            <a class="link" href="https://gomeetup.ru/events/45595-zeldev-meetup-21" target="_blank" rel="noopener">Анонс на GoMeetup</a><br>
+                            <a class="link" href="https://zelkultura.ru/tpost/xnkzvpk6g1-it-soobschestvo-zelenograda-zeldev-prigl" target="_blank" rel="noopener">Новость «Культура Зеленограда»</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>19–21 ноября</td>
+                        <td>«Ноябрьский IT‑движ в Зеленограде» — митап и DeFi‑хакатон</td>
+                        <td>
+                            <span class="pill">DeFi</span>
+                            <span class="pill">смарт‑контракты</span>
+                            <span class="pill">хакатон</span>
+                            <span class="pill">блокчейн</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://www.zelenograd.ru/afisha/48303-zelenograd-dev-meetup/" target="_blank" rel="noopener">Афиша Zelenograd.ru</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>18 марта</td>
+                        <td>Zelenograd Dev Meetup — «Беспилотники, DevOps и CTO комбоскиллз»</td>
+                        <td>
+                            <span class="pill">беспилотники</span>
+                            <span class="pill">DevOps &amp; SRE</span>
+                            <span class="pill">роль CTO</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://rutube.ru/video/c55698b2da8f76584e9258168f94307d/" target="_blank" rel="noopener">Запись на Rutube</a><br>
+                            <a class="link" href="https://zcn.ru/blog/novosty_zelenograda/52990.html" target="_blank" rel="noopener">Новость о митапе</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>19 февраля</td>
+                        <td>19‑й митап Zelenograd Dev Meetup</td>
+                        <td>
+                            <span class="pill">образование и IT</span>
+                            <span class="pill">инженерная культура</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://www.facebook.com/zeldev/" target="_blank" rel="noopener">Анонс в Facebook</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>11 декабря</td>
+                        <td>18‑й митап Zelenograd Dev Meetup — «Нейроинтерфейсы / DevOps / Работа»</td>
+                        <td>
+                            <span class="pill">нейроинтерфейсы</span>
+                            <span class="pill">DevOps</span>
+                            <span class="pill">карьера CTO</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://www.zelenograd.ru/afisha/47915-zelenograd-dev-meetup--dekabr-2019/" target="_blank" rel="noopener">Афиша декабря 2019</a><br>
+                            <a class="link" href="https://www.facebook.com/zeldev/posts/1550400025112633/" target="_blank" rel="noopener">Пост о 18‑м митапе</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>15 ноября</td>
+                        <td>Zelenograd Dev Meetup — ноябрь 2019</td>
+                        <td>
+                            <span class="pill">DevOps в экосистеме MS</span>
+                            <span class="pill">Azure DevOps</span>
+                            <span class="pill">PowerShell</span>
+                            <span class="pill">беспилотный трамвай</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://www.zelenograd.ru/afisha/47787-zelenograd-dev-meetup--noyabr-2019/" target="_blank" rel="noopener">Афиша ноября 2019</a><br>
+                            <a class="link" href="https://www.instagram.com/p/B8i3tuYjb2_/" target="_blank" rel="noopener">Фото с митапа</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>28 марта</td>
+                        <td>Zelenograd Dev Meetup — «GraphQL на клиенте и сервере. От идеи до прототипа»</td>
+                        <td>
+                            <span class="pill">GraphQL</span>
+                            <span class="pill">Next.js</span>
+                            <span class="pill">Prisma</span>
+                            <span class="pill">TypeScript</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://www.zelenograd.ru/afisha/48487-zelenograd-dev-meetup/" target="_blank" rel="noopener">Афиша воркшопа</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2018</td>
+                        <td>26 января</td>
+                        <td>Январский митап: Kubernetes &amp; Agile</td>
+                        <td>
+                            <span class="pill">Kubernetes</span>
+                            <span class="pill">Agile</span>
+                            <span class="pill">инфраструктура</span>
+                        </td>
+                        <td>
+                            <a class="link" href="https://www.meetup.com/Zelenograd-Dev-Meetup/events/246962387/" target="_blank" rel="noopener">Событие на meetup.com</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016–2017</td>
+                        <td>серия митапов</td>
+                        <td>Ранние встречи Zelenograd Dev Meetup</td>
+                        <td>
+                            <span class="pill">Scrum и процессы</span>
+                            <span class="pill">функциональное программирование</span>
+                            <span class="pill">инженерная культура</span>
+                        </td>
+                        <td>
+                            Архив доступен в старых событиях <a class="link" href="https://meetup.com/zeldev/" target="_blank" rel="noopener">группы на meetup.com</a> (часть данных может быть недоступна без аккаунта).
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="notice" style="margin-top: 16px;">
+                Если вы были спикером или участником и у вас есть материалы/фото с митапов, напишите организаторам в
+                <a href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener" class="link">Telegram-группе ZelDev</a> — мы дополним этот архив.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div>ZelDev — IT-сообщество Зеленограда. Основная страница сообщества — <a href="index.html" rel="noopener">zeldev.ru (лендинг)</a>, общение — в <a href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener">Telegram</a>.</div>
+    </footer>
+</div>
+</body>
+</html>
+
