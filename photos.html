@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105514461', 'ym');
+
+    ym(105514461, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105514461" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZelDev — Фотографии</title>
+    <meta name="description" content="Фотографии с митапов ZelDev.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #FFC107;
+            --background-color: #FFFFFF;
+            --surface-color: #F5F5F5;
+            --text-color: #121212;
+            --muted-color: #666666;
+            --border-radius: 12px;
+        }
+
+        body {
+            margin: 0;
+            padding-top: 80px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--background-color);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: var(--muted-color);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            background-color: var(--surface-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav {
+                position: absolute;
+                right: 0px;
+                height: 92vh;
+                top: 8vh;
+                background-color: var(--background-color);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+            
+            .nav.nav-active {
+                transform: translateX(0%);
+            }
+            
+            .nav a {
+                margin: 20px 0;
+            }
+            
+            .burger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">ZelDev</a>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <a href="index.html#about">О нас</a>
+                <a href="index.html#topics">Темы</a>
+                <a href="archive.html">Архив</a>
+                <a href="photos.html">Фото</a>
+                <a href="index.html#join">Присоединиться</a>
+            </nav>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Фотографии с митапов</h2>
+            <div class="gallery">
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAHUlEQVR42mP8z8AARMDHwEgoCjA6sAKjA6sDOwAAvwH/D/M8f/wAAAAASUVORK5CYII=" alt="Placeholder Image 1"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAHklEQVR42mP8/58BCYARMRISimB0YAVGB1YHdgcAQv8H/P9T3/MAAAAASUVORK5CYII=" alt="Placeholder Image 2"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAHklEQVR42mP8z8AARMRISigCgwOrA6sDOwAAmQE/D/P/f+4AAAAASUVORK5CYII=" alt="Placeholder Image 3"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAH0lEQVR42mP8/58BCYARMRISimB0YAUSB1YHdgcAQ/8H/P9T3/MAAAAASUVORK5CYII=" alt="Placeholder Image 4"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAHklEQVR42mP8/Z8BCYARMRISimB0YAUSB1YHdgcAQ/8H/P9T3/MAAAAASUVORK5CYII=" alt="Placeholder Image 5"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAH0lEQVR42mP8/U8BCYARMRISimB0YAUSB1YHdgcAQ/8H/P9T3/MAAAAASUVORK5CYII=" alt="Placeholder Image 6"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAHklEQVR42mP8z8AARMRISigCgwOrA6sDOwAAmQE/D/P/f+4AAAAASUVORK5CYII=" alt="Placeholder Image 7"></div>
+                <div class="gallery-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAHklEQVR42mP8/V8BCYARMRISimB0YAUSB1YHdgcAQ/8H/P9T3/MAAAAASUVORK5CYII=" alt="Placeholder Image 8"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 ZelDev. Все права защищены.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav');
+            
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+            });
+        }
+        
+        navSlide();
+    </script>
+</body>
+</html>

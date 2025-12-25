@@ -1,9 +1,190 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-<!-- Yandex.Metrika counter -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZelDev — IT-сообщество Зеленограда</title>
+    <meta name="description" content="ZelDev — IT сообщество Зеленограда: встречи разработчиков, доклады про инженерную культуру, базы данных, DevOps, ML, архитектуру и многое другое.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #FFC107;
+            --background-color: #FFFFFF;
+            --surface-color: #F5F5F5;
+            --text-color: #121212;
+            --muted-color: #666666;
+            --border-radius: 12px;
+        }
+
+        body {
+            margin: 0;
+            padding-top: 80px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--background-color);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+             max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--muted-color);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .card .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted-color);
+        }
+
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            background-color: var(--surface-color);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav {
+                position: absolute;
+                right: 0px;
+                height: 92vh;
+                top: 8vh;
+                background-color: var(--background-color);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+            
+            .nav.nav-active {
+                transform: translateX(0%);
+            }
+            
+            .nav a {
+                margin: 20px 0;
+            }
+            
+            .burger {
+                display: block;
+            }
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -17,764 +198,112 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/105514461" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-    <title>ZelDev — IT-сообщество Зеленограда</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ZelDev — IT сообщество Зеленограда: встречи разработчиков, доклады про инженерную культуру, базы данных, DevOps, ML, архитектуру и многое другое.">
-    <style>
-        :root {
-            --bg: #050816;
-            --bg-alt: #070b1f;
-            --accent: #10b981;
-            --accent-soft: rgba(16, 185, 129, 0.12);
-            --accent-strong: rgba(16, 185, 129, 0.24);
-            --text: #f9fafb;
-            --muted: #9ca3af;
-            --border: rgba(148, 163, 184, 0.2);
-            --card-bg: rgba(15, 23, 42, 0.85);
-            --radius: 18px;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
-        }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #111827 0, #020617 40%, #000 100%);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            backdrop-filter: blur(18px);
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.92), transparent);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brand-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 12px;
-            background:
-                radial-gradient(circle at 20% 20%, #22c55e 0, transparent 55%),
-                radial-gradient(circle at 80% 80%, #22d3ee 0, transparent 55%),
-                radial-gradient(circle at 10% 90%, #4f46e5 0, transparent 55%),
-                #020617;
-            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3),
-                        0 14px 30px rgba(15, 23, 42, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 17px;
-            font-weight: 700;
-            color: #e5e7eb;
-        }
-
-        .brand-text-main {
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-
-        .brand-text-sub {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            padding: 6px 0;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-cta {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            border-radius: 999px;
-            padding: 7px 14px;
-            border: 1px solid var(--border);
-            background: rgba(15, 23, 42, 0.8);
-            color: var(--text);
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.16s ease;
-            white-space: nowrap;
-        }
-
-        .btn span.emoji {
-            font-size: 15px;
-        }
-
-        .btn-primary {
-            border-color: transparent;
-            background: linear-gradient(135deg, #22c55e, #0ea5e9);
-            color: #022c22;
-            font-weight: 600;
-            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.45);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 16px 40px rgba(16, 185, 129, 0.65);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.08), rgba(15, 23, 42, 0.95));
-        }
-
-        main {
-            flex: 1;
-        }
-
-        .hero {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 34px 16px 40px;
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-            gap: 32px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            font-size: 11px;
-            color: var(--muted);
-            margin-bottom: 12px;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: #22c55e;
-            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
-        }
-
-        .hero-title {
-            font-size: clamp(32px, 4vw, 40px);
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            margin: 0 0 12px;
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, #e5e7eb, #a5f3fc);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-subtitle {
-            color: var(--muted);
-            font-size: 15px;
-            max-width: 520px;
-        }
-
-        .hero-topics {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .chip {
-            font-size: 11px;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            color: #e5e7eb;
-        }
-
-        .hero-actions {
-            margin-top: 22px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .hero-note {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .hero-right {
-            position: relative;
-            min-height: 260px;
-        }
-
-        .card {
-            border-radius: var(--radius);
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .hero-card {
-            padding: 18px 18px 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            background:
-                radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.55), transparent 55%),
-                radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.5), transparent 55%);
-            mix-blend-mode: soft-light;
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .hero-metrics {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 12px;
-        }
-
-        .metric {
-            position: relative;
-        }
-
-        .metric-label {
-            font-size: 11px;
-            color: var(--muted);
-            margin-bottom: 4px;
-        }
-
-        .metric-number {
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .metric-number span {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--muted);
-            margin-left: 4px;
-        }
-
-        .metric-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .pill {
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            color: #e5e7eb;
-        }
-
-        .hero-timeline {
-            margin-top: 10px;
-            font-size: 11px;
-            color: var(--muted);
-            border-top: 1px solid rgba(148, 163, 184, 0.3);
-            padding-top: 9px;
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .hero-timeline strong {
-            color: #e5e7eb;
-        }
-
-        .hero-decoration {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
-        .hero-orbit {
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 1px dashed rgba(148, 163, 184, 0.3);
-            top: 10%;
-            right: -8%;
-            transform: rotate(-18deg);
-        }
-
-        .hero-dot {
-            position: absolute;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
-        }
-
-        .section {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 16px 40px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            align-items: flex-end;
-            margin-bottom: 18px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            margin: 0;
-        }
-
-        .section-subtitle {
-            font-size: 13px;
-            color: var(--muted);
-            max-width: 420px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .topic-card {
-            padding: 14px 14px 13px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), rgba(15, 23, 42, 0.95));
-        }
-
-        .topic-icon {
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .topic-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .topic-text {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-            gap: 18px;
-        }
-
-        .list {
-            list-style: none;
-            padding: 0;
-            margin: 8px 0 0;
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        .list li {
-            padding-left: 18px;
-            position: relative;
-            margin: 4px 0;
-        }
-
-        .list li::before {
-            content: "•";
-            position: absolute;
-            left: 4px;
-            color: var(--accent);
-        }
-
-        .platform-card {
-            padding: 14px 14px 13px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .platform-title {
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .platform-info {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .platform-link {
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-            color: #a5f3fc;
-        }
-
-        .platform-link span.icon {
-            font-size: 15px;
-        }
-
-        .footer {
-            border-top: 1px solid var(--border);
-            padding: 16px;
-            font-size: 11px;
-            color: var(--muted);
-            text-align: center;
-            background: #020617;
-        }
-
-        .footer a {
-            color: #a5f3fc;
-        }
-
-        @media (max-width: 880px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-                padding-top: 24px;
-            }
-
-            .hero-right {
-                order: -1;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-cta {
-                margin-left: auto;
-            }
-
-            .grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .two-col {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero {
-                padding-top: 18px;
-            }
-
-            .hero-title {
-                font-size: 28px;
-            }
-
-            .hero-card {
-                padding: 16px 14px 13px;
-            }
-
-            .grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .nav {
-                padding-inline: 12px;
-            }
-        }
-    </style>
 </head>
 <body>
-<div class="page">
-    <header>
-        <div class="nav">
-            <a href="#top" class="brand">
-                <div class="brand-logo">Z</div>
-                <div>
-                    <div class="brand-text-main">ZelDev</div>
-                    <div class="brand-text-sub">IT-сообщество Зеленограда</div>
-                </div>
-            </a>
-            <nav class="nav-links">
-                <a href="#about">О сообществе</a>
-                <a href="#topics">Темы</a>
-                <a href="#events">Мероприятия</a>
-                <a href="archive.html">Архив митапов</a>
-                <a href="#join">Как присоединиться</a>
-            </nav>
-            <div class="nav-cta">
-                </a>
-                <a class="btn btn-primary" href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener">
-                    <span class="emoji">💬</span> Войти в Telegram
-                </a>
-            </div>
+    <header class="header">
+    <div class="header-container">
+        <a href="/" class="logo">ZelDev</a>
+        <nav class="nav">
+            <a href="/">Главная</a>
+	    <a href="event">Встреча в декабре</a>
+	    <a href="#about">О нас</a>
+            <a href="#topics">Темы</a>
+                            <a href="archive.html">Архив</a>
+                            <a href="photos.html">Фото</a>
+                            <a href="#join">Присоединиться</a>        </nav>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
         </div>
     </header>
 
-    <main id="top">
-        <section class="hero" id="about">
-            <div>
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    Оффлайн и онлайн встречи инженеров Зеленограда
-                </div>
-                <h1 class="hero-title hero-gradient">ZelDev — IT-сообщество разработчиков и тех, кто просто любит код</h1>
-                <p class="hero-subtitle">
-                    Мы собираем в одном месте инженеров, тимлидов, архитекторов и энтузиастов,
-                    чтобы делиться опытом: от языков программирования и инженерной культуры
-                    до ML, криптографии и разработки беспилотников.
-                    В нашей копилке уже <strong>21 митап</strong> с докладами и живыми дискуссиями.
-                </p>
-                <div class="hero-topics">
-                    <div class="chip">Инженерная культура</div>
-                    <div class="chip">Backend &amp; Frontend</div>
-                    <div class="chip">Базы данных &amp; DevOps</div>
-                    <div class="chip">QA &amp; тестирование</div>
-                    <div class="chip">ML и GPT-системы</div>
-                    <div class="chip">Embedded &amp; беспилотники</div>
-                    <div class="chip">Криптография</div>
-                    <div class="chip">Архитектура систем</div>
-                </div>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener">
-                        <span class="emoji">🚀</span> Присоединиться в Telegram
-                    </a>
-                    <a class="btn btn-secondary" href="https://t.me/zeldev_bot" target="_blank" rel="noopener">
-                        <span class="emoji">🎤</span> Посмотреть ближайшие митапы
-                    </a>
-                    <div class="hero-note">
-                        Или переходите в <a href="archive.html" style="color:#a5f3fc;">архив митапов</a>, чтобы посмотреть прошедшие встречи.
-                    </div>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="card hero-card">
-                    <div class="hero-metrics">
-                        <div class="metric">
-                            <div class="metric-label">Митапы ZelDev</div>
-                            <div class="metric-number">21<span>прошедший митап</span></div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-label">Форматы</div>
-                            <div class="metric-pills">
-                                <span class="pill">доклады</span>
-                                <span class="pill">панельные дискуссии</span>
-                                <span class="pill">разборы кейсов</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-timeline">
-                        <span><strong>Темы:</strong> инженерная культура, разработка ПО, базы данных, DevOps, QA, ML, Frontend, криптография, архитектура, биомед, embedded, беспилотники, GPT-системы.</span>
-                        <span>Полный список смотрите в <a href="archive.html" style="color:#a5f3fc;">архиве митапов</a>.</span>
-                    </div>
-                </div>
-                <div class="hero-decoration">
-                    <div class="hero-orbit">
-                        <div class="hero-dot" style="top: 10px; left: 16px;"></div>
-                        <div class="hero-dot" style="bottom: 22px; right: 14px; background:#38bdf8; box-shadow:0 0 12px rgba(56,189,248,0.9);"></div>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <section class="hero">
+            <h1>IT-сообщество Зеленограда</h1>
+            <p>Место для обмена опытом и знаниями</p>
+            <a href="https://t.me/+QLhWvHW-sL1SKLXm" class="btn" target="_blank" rel="noopener">Вступить в Telegram</a>
         </section>
 
-        <section class="section" id="topics">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">О чём мы говорим на встречах</h2>
-                    <p class="section-subtitle">
-                        Наши митапы — это живые доклады без воды, честные кейсы из продакшна и неформальное общение.
-                    </p>
-                </div>
-            </div>
+        <section id="about" class="section">
+            <h2 class="section-title">О нас</h2>
             <div class="grid">
-                <article class="topic-card">
-                    <div class="topic-icon">🧠</div>
-                    <div class="topic-title">Инженерная культура &amp; процессы</div>
-                    <p class="topic-text">
-                        От код-ревью и онбординга до построения команд, зрелых процессов разработки и практик DevOps/SRE.
-                    </p>
-                </article>
-                <article class="topic-card">
-                    <div class="topic-icon">💾</div>
-                    <div class="topic-title">Бэкэнд, базы данных и архитектура</div>
-                    <p class="topic-text">
-                        Проектирование сервисов, высоконагруженные системы, ClickHouse, PostgreSQL, очереди, кэширование, отказоустойчивость.
-                    </p>
-                </article>
-                <article class="topic-card">
-                    <div class="topic-icon">🧪</div>
-                    <div class="topic-title">QA &amp; качество</div>
-                    <p class="topic-text">
-                        Тестовые пирамиды, автоматизация, контрактное тестирование, практики, которые действительно помогают не падать в проде.
-                    </p>
-                </article>
-                <article class="topic-card">
-                    <div class="topic-icon">🤖</div>
-                    <div class="topic-title">ML, GPT-системы и аналитика</div>
-                    <p class="topic-text">
-                        Прикладной ML, работа с данными, использование GPT-моделей в продуктах и внутренних инструментах.
-                    </p>
-                </article>
-                <article class="topic-card">
-                    <div class="topic-icon">🛰️</div>
-                    <div class="topic-title">Embedded, беспилотники и железо</div>
-                    <p class="topic-text">
-                        Разработка встроенных систем, прошивки, сенсоры, связь и управление беспилотными устройствами.
-                    </p>
-                </article>
-                <article class="topic-card">
-                    <div class="topic-icon">🛡️</div>
-                    <div class="topic-title">Криптография и безопасность</div>
-                    <p class="topic-text">
-                        Безопасная архитектура, практические аспекты криптографии и защита продуктов и инфраструктуры.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section" id="events">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Формат митапов</h2>
-                    <p class="section-subtitle">
-                        Мы уже провели более 20 встреч и продолжаем расширять тематику. Ценим практические доклады и живой диалог.
-                    </p>
+                <div class="card">
+                    <div class="icon">🚀</div>
+                    <h3>Наша миссия</h3>
+                    <p>Объединяем IT-специалистов Зеленограда для обмена опытом, профессионального роста и развития локального IT-сообщества.</p>
                 </div>
-            </div>
-            <div class="two-col">
-                <div class="card" style="padding: 14px 14px 10px;">
-                    <h3 style="margin: 0 0 6px; font-size: 15px;">Как обычно проходит встреча</h3>
-                    <ul class="list">
-                        <li>1–2 доклада по 25–35 минут с сессией вопросов.</li>
-                        <li>Неофициальная часть: общение, нетворкинг, обмен опытом и задачами.</li>
-                        <li>Темы подбираем так, чтобы были полезны и разработчикам, и тимлидам, и архитекторам.</li>
-                        <li>Онлайн-формат или оффлайн-встречи в Зеленограде — в зависимости от формата и площадки.</li>
-                    </ul>
-                    <h3 style="margin: 12px 0 6px; font-size: 15px;">Кому будет интересно</h3>
-                    <ul class="list">
-                        <li>Разработчикам (Junior → Lead), DevOps/SRE, QA-инженерам.</li>
-                        <li>Руководителям команд и тем, кто растёт в лидерство.</li>
-                        <li>Тем, кто делает свои pet-проекты или стартапы и ищет комьюнити.</li>
-                    </ul>
+                <div class="card">
+                    <div class="icon">💡</div>
+                    <h3>Наши ценности</h3>
+                    <p>Открытость, взаимопомощь, стремление к знаниям и дружелюбная атмосфера.</p>
                 </div>
-                <div class="card" style="padding: 14px 14px 10px;">
-                    <h3 style="margin: 0 0 6px; font-size: 15px;">Если вы хотите выступить</h3>
-                    <p style="font-size: 13px; color: var(--muted); margin: 0 0 8px;">
-                        Мы открыты к новым спикерам. Докладываем то, что реально пробовали, и не боимся рассказывать о фейлах.
-                    </p>
-                    <ul class="list">
-                        <li>Напишите организаторам в <a href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener" style="color:#a5f3fc;">Telegram-группе ZelDev</a>.</li>
-                        <li>Кратко опишите тему, целевую аудиторию и чему участники научатся.</li>
-                        <li>Поможем оформить структуру доклада и подготовиться.</li>
-                    </ul>
-                    <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">
-                        Даже если у вас «просто хороший боевой кейс» — это уже отличный материал для митапа.
-                    </p>
+                <div class="card">
+                    <div class="icon">📈</div>
+                    <h3>Наша история</h3>
+                    <p>Более 20 митапов с 2016 года. Мы постоянно растем и развиваемся.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="join">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Как присоединиться к сообществу</h2>
-                    <p class="section-subtitle">
-                        Всё общение и анонсы проходят в Telegram. Подписывайтесь там, где вам удобнее.
-                    </p>
+        <section id="topics" class="section">
+            <h2 class="section-title">Темы, которые мы обсуждаем</h2>
+            <div class="grid">
+                <div class="card">
+                    <p>Инженерная культура</p>
                 </div>
-            </div>
-            <div class="two-col">
-                <div class="card platform-card">
-                    <div class="platform-title">Telegram-группа ZelDev</div>
-                    <div class="platform-info">
-                        Основной канал общения: обсуждаем идеи, помогаем с выбором технологий, делимся вакансиями и интересными ссылками.
-                    </div>
-                    <a class="platform-link" href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener">
-                        <span class="icon">💬</span>
-                        <span>Вступить в группу в Telegram</span>
-                    </a>
+                <div class="card">
+                    <p>Backend & Frontend</p>
                 </div>
-                <div class="card platform-card">
-                    <div class="platform-title">Telegram бот</div>
-                    <div class="platform-info">
-                        Здесь мы публикуем анонсы и программы митапов, собираем регистрацию и материалы после выступлений.
-                    </div>
-                    <a class="platform-link" href="https://t.me/zeldev_bot" target="_blank" rel="noopener">
-                        <span class="icon">📅</span>
-                        <span>Подписаться на ZelDev в Telegram</span>
-                    </a>
+                <div class="card">
+                    <p>Базы данных & DevOps</p>
+                </div>
+                <div class="card">
+                    <p>QA & тестирование</p>
+                </div>
+                <div class="card">
+                    <p>ML и GPT-системы</p>
+                </div>
+                <div class="card">
+                    <p>Embedded & беспилотники</p>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <div>ZelDev — IT-сообщество Зеленограда. Присоединяйтесь к нам в <a href="https://t.me/+QLhWvHW-sL1SKLXm" target="_blank" rel="noopener">Telegram</a>. А архив всех прошедших митапов — на странице <a href="archive.html" target="_blank" rel="noopener">«Архив митапов»</a>.</div>
-    </footer>
-</div>
+        <section id="join" class="section">
+            <h2 class="section-title">Присоединяйтесь к нам</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Telegram-группа ZelDev</h3>
+                    <p>Основной канал общения: обсуждаем идеи, помогаем с выбором технологий, делимся вакансиями и интересными ссылками.</p>
+                    <a href="https://t.me/+QLhWvHW-sL1SKLXm" class="btn" target="_blank" rel="noopener">Вступить</a>
+                </div>
+                <div class="card">
+                    <h3>Telegram бот</h3>
+                    <p>Здесь мы публикуем анонсы и программы митапов, собираем регистрацию и материалы после выступлений.</p>
+                    <a href="https://t.me/zeldev_bot" class="btn" target="_blank" rel="noopener">Подписаться</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 ZelDev. Все права защищены.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav');
+            
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+            });
+        }
+        
+        navSlide();
+    </script>
 </body>
 </html>
-
